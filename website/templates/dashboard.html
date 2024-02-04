@@ -1,0 +1,28 @@
+<!-- templates/weather_page.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Page</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <style>
+        #map { height: 400px; display: none; }
+    </style>
+</head>
+<body>
+    <h1>Dashboard Page</h1>
+    <form method="post" action="{{ url_for('weather_dashboard.get_weather') }}">
+        <label for="city">Enter City:</label>
+        <input type="text" id="city" name="city" required>
+        <button type="Search">Search</button>
+    </form>
+
+    <div id="map"></div>
+    <p>Weather in {{city}}</p>
+    <p>Temperature: {{(temperature - 273)| round(2)}}°C</p>
+    <p>Description: {{description}}</p> 
+
+</body>
+</html>

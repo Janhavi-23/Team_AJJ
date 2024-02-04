@@ -8,10 +8,10 @@ def create_app():
     # api = Api()
 
     
-    from .views import views
-    from .auth import auth
+    from .views import weather_dashboard
+    # from .auth import auth
 
-    app.register_blueprint(views, url_prefix="/")
-    app.register_blueprint(auth, url_prefix="/")
+    app.register_blueprint(weather_dashboard, url_prefix="/")
+    # app.register_blueprint(auth, url_prefix="/")
 
     return app
