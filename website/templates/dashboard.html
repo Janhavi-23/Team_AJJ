@@ -28,16 +28,28 @@
             </button> -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Login</a>
-                    </li>
+
+                    {% if request.cookies.get('username') %}
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Sign up</a>
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                    {% endif %}
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">Sign up</a>
                     </li>
                     <li class="nav-item">
                         <a href="/ask"> Crop Advisor</a>
                     </li>
-
+                    {% if request.cookies.get('username') %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/add_plant">Manage plant</a>
+                    </li>
+                {% endif %}
                 </ul>
             </div>
         </div>
@@ -74,7 +86,7 @@
             <div class="col-md-6 mb-4">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Card 2</h5>
+                        <h5 class="card-title">Crop statistics</h5>
                         <p class="card-text">This is the content of Card 2.</p>
                     </div>
                 </div>
